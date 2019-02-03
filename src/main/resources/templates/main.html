@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<h1>Start Page</h1>
+<form th:action="${url}">
+    <button type="submit">Authorization</button>
+    <input th:if="${client_id}"  type="hidden" name="client_id"  th:value="${client_id}" />
+    <input th:if="${redirect_uri}" type="hidden" name="redirect_uri"  th:value="${redirect_uri}" />
+    <input th:if="${scope}" type="hidden" name="scope"  th:value="${scope}" />
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+
+<form action="/">
+    <button type="submit">Back</button>
+</form>
+
+<h1>Information</h1>
+
+<div>Information about You:</div>
+
+<img th:src="${user.getPhoto()}" alt="фото не найдено">
+<div>
+    <span th:text="${user.getFirstName()}"></span>
+    <span th:text="${user.getLastName()}"></span>
+</div>
+
+<br>
+
+<div>Information about your friends:</div>
+
+<table th:each="friend : ${friends}">
+    <tr>
+        <td><img th:src="${friend.getPhoto()}" alt="фото не найдено"></td>
+    </tr>
+    <tr>
+        <td>
+            <span th:text="${friend.getFirstName()}"></span>
+            <span th:text="${friend.getLastName()}"></span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
