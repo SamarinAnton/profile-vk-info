@@ -18,9 +18,11 @@ import java.util.stream.Collectors;
 @Service
 public class VkApiService {
 
-    public UserActor initActor(VkApiClient vk, Integer APP_ID, String CLIENT_SECRET, String REDIRECT_URI, String CODE) throws ClientException, ApiException {
+    private static final int NUMBER_FRIENDS = 5;
+
+    public UserActor initActor(VkApiClient vk, Integer appId, String secretKey, String redirectUrl, String code) throws ClientException, ApiException {
         UserAuthResponse authResponse = vk.oauth()
-                .userAuthorizationCodeFlow(APP_ID, CLIENT_SECRET, REDIRECT_URI, CODE)
+                .userAuthorizationCodeFlow(appId, secretKey, redirectUrl, code)
                 .execute();
 
         return new UserActor(authResponse.getUserId(), authResponse.getAccessToken());
@@ -40,7 +42,7 @@ public class VkApiService {
         GetFieldsResponse fullInfo = vk
                 .friends()
                 .get(actor, UserField.NICKNAME, UserField.PHOTO_100)
-                .count(5)
+                .count(NUMBER_FRIENDS)
                 .execute();
 
         return fullInfo
