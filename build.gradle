@@ -13,7 +13,6 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: "com.heroku.sdk.heroku-gradle" version "1.0.4"
 
 group = 'ru.webim.testTask'
 version = '0.0.1-SNAPSHOT'
@@ -30,3 +29,6 @@ dependencies {
     compile('com.vk.api:sdk:0.5.12')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
