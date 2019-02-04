@@ -26,8 +26,8 @@ public class UserController {
     private final Map<String, UserActor> map = new ConcurrentHashMap<>();
     private final VkApiClient vk;
     private VkApiService vkApiService;
-    private static final Integer APP_ID = 6841360;
-    private static final String CLIENT_SECRET = "1KJCMGPmDGWNubYu8iCu";
+    private static final Integer APP_ID = 6845835;
+    private static final String CLIENT_SECRET = "FfEMGW9QKGwDbkHdwDos";
     private static final String REDIRECT_URI = "http://localhost:8080/info";
     private static final String SCOPE = "friends,offline ";
     private static final String AUTHORIZE_URL = "https://oauth.vk.com/authorize";
